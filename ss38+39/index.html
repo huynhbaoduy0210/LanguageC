@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="2.css">
+<title>Search Bar</title>
+</head>
+<body>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+.search-container {
+    position: relative;
+}
+.search-input {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border: none;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    transition: width 0.3s ease;
+    outline: none;
+    margin-left: 10px;
+}
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: #333;
+    cursor: pointer;
+    transition: left 0.3s ease;
+}
+.search-input.expand {
+    width: 200px;
+}
+.search-icon.expand {
+    left: 170px;
+}
+    </style>
+<div class="search-container">
+    <input type="text" class="search-input" placeholder="Search..." onfocus="togglePlaceholder()" onblur="togglePlaceholder()">
+    <i class="search-icon fas fa-search" id="searchIcon" onclick="toggleSearch()"></i>
+</div>
+<script>
+    function toggleSearch() {
+    var input = document.querySelector('.search-input');
+    var icon = document.getElementById('searchIcon');
+
+    input.classList.toggle('expand');
+    icon.classList.toggle('expand');
+    if (input.classList.contains('expand')) {
+        input.focus();
+        input.placeholder = 'Search...';
+    } else {
+        input.blur();
+        input.placeholder = '';
+    }
+}
+
+</script>
+</body>
+</html>
